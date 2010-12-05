@@ -5,7 +5,7 @@
 Summary:	A powerful C++ class library for working with MIME/Internet messages
 Name:		libvmime07
 Version:	0.7.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.zarafa.com/wiki/index.php/Libvmime_patches
