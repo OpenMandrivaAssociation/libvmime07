@@ -1,0 +1,12 @@
+--- src/encoderFactory.cpp	2011-03-23 08:21:48.728682621 +0100
++++ src/encoderFactory.cpp.oden	2011-03-23 08:22:25.180232233 +0100
+@@ -40,7 +40,9 @@ encoderFactory::encoderFactory()
+ 	registerName <encoderQP>("bmoted-printable");
+ 	registerName <encoderUUE>("uuencode");
+ 	registerName <encoder7bit>("7bit");
++	registerName <encoder7bit>("7-bit");
+ 	registerName <encoder8bit>("8bit");
++	registerName <encoder8bit>("8-bit");
+ 	registerName <encoderBinary>("binary");
+ }
+ 

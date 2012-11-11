@@ -1,0 +1,11 @@
+--- src/address.cpp	2005-03-18 22:26:46.000000000 +0100
++++ src/address.cpp.oden	2011-03-23 08:14:00.030046533 +0100
+@@ -103,7 +103,7 @@ address* address::parseNext(const string
+ 				break;
+ 			case '=':
+ 
+-				if (pos + 1 < end && buffer[pos + 1] == '?')
++				if (!quotedRFC2047 && pos + 1 < end && buffer[pos + 1] == '?')
+ 				{
+ 					++pos;
+ 					quotedRFC2047 = true;

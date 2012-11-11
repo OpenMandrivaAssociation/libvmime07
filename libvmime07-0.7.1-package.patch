@@ -1,0 +1,104 @@
+Patch by Robert Scheck <robert@fedoraproject.org> for libvmime >= 0.7.1 to get libvmime renamed to
+libvmime07 to avoid any conflicts with current libvmime series. Note that libvmime 0.7.x, 0.8.x and
+0.9.x are unfortunately completely API and ABI incompatible to eachother.
+
+--- libvmime-0.7.1/src/Makefile.am					2005-06-22 00:11:11.000000000 +0200
++++ libvmime-0.7.1/src/Makefile.am.package				2009-04-05 17:36:46.000000000 +0200
+@@ -5,9 +5,9 @@
+ AUTOMAKE_OPTIONS = no-dependencies foreign
+ INTERNALS =
+ INCLUDES = -I$(top_srcdir) -I$(srcdir) @PKGCONFIG_CFLAGS@ @EXTRA_CFLAGS@
+-lib_LTLIBRARIES = libvmime.la
+-libvmime_la_LDFLAGS = -export-dynamic -version-info @LIBRARY_VERSION@ @PKGCONFIG_LIBS@ @EXTRA_LIBS@
+-libvmime_la_SOURCES = address.cpp \
++lib_LTLIBRARIES = libvmime07.la
++libvmime07_la_LDFLAGS = -export-dynamic -version-info @LIBRARY_VERSION@ @PKGCONFIG_LIBS@ @EXTRA_LIBS@
++libvmime07_la_SOURCES = address.cpp \
+ 	addressList.cpp \
+ 	base.cpp \
+ 	body.cpp \
+@@ -82,7 +82,7 @@
+ 	misc_importanceHelper.cpp
+ 
+ if VMIME_HAVE_MESSAGING_FEATURES
+-libvmime_la_SOURCES += messaging_authenticator.cpp \
++libvmime07_la_SOURCES += messaging_authenticator.cpp \
+ 	messaging_authenticationInfos.cpp \
+ 	messaging_authHelper.cpp \
+ 	messaging_builtinServices.inl \
+@@ -99,17 +99,17 @@
+ endif
+ 
+ if VMIME_BUILTIN_MESSAGING_PROTO_POP3
+-libvmime_la_SOURCES += messaging_pop3_POP3Store.cpp \
++libvmime07_la_SOURCES += messaging_pop3_POP3Store.cpp \
+ 	messaging_pop3_POP3Folder.cpp \
+ 	messaging_pop3_POP3Message.cpp
+ endif
+ 
+ if VMIME_BUILTIN_MESSAGING_PROTO_SMTP
+-libvmime_la_SOURCES += messaging_smtp_SMTPTransport.cpp
++libvmime07_la_SOURCES += messaging_smtp_SMTPTransport.cpp
+ endif
+ 
+ if VMIME_BUILTIN_MESSAGING_PROTO_IMAP
+-libvmime_la_SOURCES += messaging_imap_IMAPConnection.cpp \
++libvmime07_la_SOURCES += messaging_imap_IMAPConnection.cpp \
+ 	messaging_imap_IMAPStore.cpp \
+ 	messaging_imap_IMAPFolder.cpp \
+ 	messaging_imap_IMAPMessage.cpp \
+@@ -118,24 +118,24 @@
+ endif
+ 
+ if VMIME_BUILTIN_MESSAGING_PROTO_MAILDIR
+-libvmime_la_SOURCES += messaging_maildir_maildirStore.cpp \
++libvmime07_la_SOURCES += messaging_maildir_maildirStore.cpp \
+ 	messaging_maildir_maildirFolder.cpp \
+ 	messaging_maildir_maildirMessage.cpp \
+ 	messaging_maildir_maildirUtils.cpp
+ endif
+ 
+ if VMIME_BUILTIN_MESSAGING_PROTO_SENDMAIL
+-libvmime_la_SOURCES += messaging_sendmail_sendmailTransport.cpp
++libvmime07_la_SOURCES += messaging_sendmail_sendmailTransport.cpp
+ endif
+ 
+ if VMIME_BUILTIN_PLATFORM_WINDOWS
+-libvmime_la_SOURCES += platforms_windows_windowsFile.cpp \
++libvmime07_la_SOURCES += platforms_windows_windowsFile.cpp \
+ 	platforms_windows_windowsHandler.cpp \
+ 	platforms_windows_windowsSocket.cpp
+ endif
+ 
+ if VMIME_BUILTIN_PLATFORM_POSIX
+-libvmime_la_SOURCES += platforms_posix_posixChildProcess.cpp \
++libvmime07_la_SOURCES += platforms_posix_posixChildProcess.cpp \
+ 	platforms_posix_posixFile.cpp \
+ 	platforms_posix_posixHandler.cpp \
+ 	platforms_posix_posixSocket.cpp
+--- libvmime-0.7.1/configure.in						2005-06-22 00:11:11.000000000 +0200
++++ libvmime-0.7.1/configure.in.package					2009-04-06 20:42:53.000000000 +0200
+@@ -18,7 +18,7 @@
+ GENERIC_VERSIONED_LIBRARY_NAME="vmime"
+ AC_SUBST(GENERIC_VERSIONED_LIBRARY_NAME)
+ 
+-LIBRARY_NAME="libvmime"
++LIBRARY_NAME="libvmime07"
+ AC_SUBST(LIBRARY_NAME)
+ 
+ # Library version
+--- libvmime-0.7.1/vmime.pc.in						2005-06-22 00:11:11.000000000 +0200
++++ libvmime-0.7.1/vmime.pc.in.package					2009-04-06 20:46:07.000000000 +0200
+@@ -6,9 +6,9 @@
+ libdir=@libdir@
+ includedir=@includedir@
+ 
+-Name: @GENERIC_LIBRARY_NAME@
++Name: vmime07
+ Description: VMime C++ Mail Library (http://vmime.sourceforge.net)
+ Version: @VERSION@
+ Requires:
+-Libs: -L${libdir} -l@GENERIC_VERSIONED_LIBRARY_NAME@
+-Cflags: -I${includedir}/
++Libs: -L${libdir} -lvmime07
++Cflags: -I${includedir}/libvmime07/
