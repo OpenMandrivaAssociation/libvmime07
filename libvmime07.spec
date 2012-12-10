@@ -225,3 +225,31 @@ rm -rf %{buildroot}
 %{_includedir}/%{name}/
 %{_libdir}/pkgconfig/vmime07.pc
 
+
+
+%changelog
+* Wed Mar 23 2011 Oden Eriksson <oeriksson@mandriva.com> 0.7.1-3mdv2011.0
++ Revision: 647790
+- revisit all patches and sync with upstream zarafa (don't rely on fedora ;))
+- added patch descriptions for each patch in the spec file.
+- added backport magic
+
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 0.7.1-2mdv2011.0
++ Revision: 609788
+- rebuild
+
+* Tue Mar 09 2010 Oden Eriksson <oeriksson@mandriva.com> 0.7.1-1mdv2010.1
++ Revision: 517178
+- import libvmime07
+
+
+* Tue Mar 09 2010 Oden Eriksson <oeriksson@mandriva.com> 0.7.1-1mdv2010.0
+- initial Mandriva package (fedora import)
+
+* Mon Feb 15 2010 Robert Scheck <robert@fedoraproject.org> 0.7.1-2
+- Added a patch with include for sigset_t definition (#565148)
+- Updated a patch to fix end of headers detection at last header
+
+* Sat Sep 05 2009 Robert Scheck <robert@fedoraproject.org> 0.7.1-1
+- Upgrade to 0.7.1
+- Initial spec file for Fedora and Red Hat Enterprise Linux
