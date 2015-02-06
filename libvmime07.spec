@@ -4,11 +4,11 @@
 
 %if %mandriva_branch == Cooker
 # Cooker
-%define release %mkrel 3
+%define release 4
 %else
 # Old distros
 %define subrel 2
-%define release %mkrel 0
+%define release 1
 %endif
 
 Summary:	A powerful C++ class library for working with MIME/Internet messages
