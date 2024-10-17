@@ -17,7 +17,7 @@ Version:	0.7.1
 Release:	%release
 License:	GPLv2+
 Group:		System/Libraries
-URL:		http://www.zarafa.com/wiki/index.php/Libvmime_patches
+URL:		https://www.zarafa.com/wiki/index.php/Libvmime_patches
 Source0:	http://developer.zarafa.com/download/libvmime-%{version}.tar.bz2
 Patch0:		libvmime07-0.7.1-package.patch
 # Early catches an exception of vmime when iconv was unable to convert a word from or to the requested charsets. This makes broken mails with invalid characters for a valid charset still be able to deliver. We'd rather have an email with a ? sign than a FallbackDelivery for the user.
