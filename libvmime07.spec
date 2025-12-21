@@ -89,6 +89,11 @@ Patch32:	libvmime07-0.7.1-strip-spaces-parameterized-headers.diff
 Patch33:	libvmime07-0.7.1-allow-alternate-encodings.diff
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 VMime is a powerful C++ class library for parsing, generating or
 editing Internet RFC-[2]822 and MIME messages. VMime is designed
